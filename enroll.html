@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form - TITAN Institute</title>
+
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fc;
+            color: #333333;
+        }
+
+        .text-dark-blue {
+            color: #0b1f44;
+        }
+
+        .top-announcement {
+            background-color: #07152e;
+            color: #ffffff;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-content span {
+            display: inline-block;
+            margin-right: 50px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 12px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-bottom: 3px solid #ffcc00;
+        }
+
+        .logo {
+            height: 55px;
+            width: auto;
+            display: block;
+        }
+
+        .navbar-nav .nav-link {
+            color: #0b1f44;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 16px !important;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+            color: #e6b800;
+        }
+
+        .dropdown-menu {
+            border: none;
+            border-top: 3px solid #0b1f44;
+            border-radius: 6px;
+            padding: 8px 0;
+        }
+
+        .dropdown-item {
+            color: #333333;
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #0b1f44;
+            color: #ffffff;
+        }
+
+        .enroll-btn {
+            background-color: #0b1f44;
+            color: #ffffff !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .enroll-btn:hover {
+            background-color: #ffcc00;
+            color: #0b1f44 !important;
+            transform: translateY(-2px);
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, #0b1f44 0%, #16366f 100%);
+            color: #ffffff;
+            padding: 50px 0;
+            border-bottom: 4px solid #ffcc00;
+            text-align: center;
+        }
+
+        .form-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(11, 31, 68, 0.08);
+            border: 1px solid #e2e8f0;
+            padding: 40px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0b1f44;
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .form-label {
+            font-weight: 600;
+            font-size: 14px;
+            color: #2d3748;
+        }
+
+        .form-control, .form-select {
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #0b1f44;
+            box-shadow: 0 0 0 3px rgba(11, 31, 68, 0.15);
+        }
+
+        .upload-box {
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            background-color: #f8fafc;
+            transition: border-color 0.3s ease;
+        }
+
+        .upload-box:hover {
+            border-color: #0b1f44;
+        }
+
+        .terms-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 220px;
+            overflow-y: auto;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        .notice-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-left: 4px solid #3b82f6;
+            border-radius: 8px;
+            padding: 15px 20px;
+            font-size: 13px;
+            color: #1e40af;
+        }
+
+        .submit-btn {
+            background-color: #0b1f44;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 14px;
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #ffcc00;
+            color: #0b1f44;
+        }
+
+        .footer-section {
+            background-color: #07152e;
+            color: #d1d5db;
+        }
+
+        .footer-logo {
+           height: 60px;
+           width: auto;
+           display: block;
+           background-color: white;
+           padding: 6px 12px;
+           border-radius: 8px;
+           border: 2px solid #ffcc00;.
+        }
+
+        .footer-title {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 35px;
+            height: 2px;
+            background-color: #ffcc00;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #b0c4de;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffcc00;
+            padding-left: 5px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #ffcc00;
+            color: #0b1f44;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-announcement py-2">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span><i class="fa-solid fa-bullhorn text-warning me-2"></i> Online Admission Form 2026 - Fill out the details below to secure your seat.</span>
+                <span><i class="fa-solid fa-graduation-cap text-warning me-2"></i> Limited seats available for Modern Web Development, Python &amp; UI/UX batches!</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.PNG" alt="TITAN Logo" class="logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="course.html" id="coursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Courses
+                        </a>
+                        <ul class="dropdown-menu shadow" aria-labelledby="coursesDropdown">
+                            <li><a class="dropdown-item" href="course.html#web-dev">Modern WEB Development</a></li>
+                            <li><a class="dropdown-item" href="course.html#python">Python Programming</a></li>
+                            <li><a class="dropdown-item" href="course.html#uiux">UI/UX Designing</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item fw-bold text-primary" href="course.html">See all Courses</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="campus.html">Campuses</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center justify-content-center">
+                    <a href="enroll.html" class="enroll-btn">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="form-header">
+        <div class="container">
+            <div class="form-stepper" aria-label="Application progress">
+                <span class="step-item active"><b>1</b> Program</span>
+                <span class="step-line"></span>
+                <span class="step-item"><b>2</b> Details</span>
+                <span class="step-line"></span>
+                <span class="step-item"><b>3</b> Submit</span>
+            </div>
+            <h1 class="display-5 fw-bold">Registration Form</h1>
+            <p class="lead text-light mb-0">Start your journey towards excellence. Fill out the form to apply for our courses.</p>
+        </div>
+    </section>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="form-card">
+                    <form action="#" method="POST">
+
+                        <!-- Location & Course Details -->
+                        <div class="section-title">
+                            <i class="fa-solid fa-map-location-dot text-warning"></i> Location &amp; Course Details
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Select Country*</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Select Country</option>
+                                    <option value="Pakistan">Pakistan</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Select Class Preference*</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Select Class Preference</option>
+                                    <option value="Morning">Morning Batch</option>
+                                    <option value="Evening">Evening Batch</option>
+                                    <option value="Weekend">Weekend Batch</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Select Gender*</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Select City*</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Select City</option>
+                                    <option value="Karachi">Karachi</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                    <option value="Lahore">Lahore</option>
+                                    <option value="Islamabad">Islamabad</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Select Course*</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Select Course</option>
+                                    <option value="Web">1. Modern WEB Development</option>
+                                    <option value="Python">2. Python Programming</option>
+                                    <option value="UIUX">3. UI/UX Designing</option>
+                                    <option value="AI">4. AI &amp; Machine Learning</option>
+                                    <option value="Mobile">5. Mobile App Development</option>
+                                    <option value="Cyber">6. Cyber Security &amp; Hacking</option>
+                                    <option value="Graphic">7. Graphic Design &amp; Video</option>
+                                    <option value="Cloud">8. Cloud Computing &amp; DevOps</option>
+                                    <option value="Data">9. Data Science &amp; Analytics</option>
+                                    <option value="Marketing">10. Digital Marketing &amp; SEO</option>
+                                    <option value="DB">11. Database &amp; SQL Mastery</option>
+                                    <option value="Game">12. 2D/3D Game Development</option>
+                                    <option value="SQA">13. Software Testing &amp; SQA</option>
+                                    <option value="Network">14. Networking (CCNA Prep)</option>
+                                    <option value="DIT">15. Diploma in IT (DIT)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Select Campus*</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Select Campus</option>
+                                    <option value="Zamzama">Saylani Titan Zamzama Campus</option>
+                                    <option value="Main">TITAN Main City Campus</option>
+                                    <option value="Online">Digital Online Campus</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Personal Information -->
+                        <div class="section-title">
+                            <i class="fa-solid fa-user text-warning"></i> Personal Information
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name*</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Full Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Father Name*</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Father Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Date of Birth*</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email*</label>
+                                <input type="email" class="form-control" placeholder="youremail@example.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone*</label>
+                                <input type="tel" class="form-control" placeholder="Enter Your Number" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Father's Phone*</label>
+                                <input type="tel" class="form-control" placeholder="Enter Father Number" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">ID Number (B-Form / CNIC)*</label>
+                                <input type="text" class="form-control" placeholder="Enter ID Number" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Father's ID Number*</label>
+                                <input type="text" class="form-control" placeholder="Enter Father ID Number" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Address*</label>
+                                <textarea class="form-control" rows="3" placeholder="Enter your complete address (minimum 10 characters)" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Education & Technical Details -->
+                        <div class="section-title">
+                            <i class="fa-solid fa-graduation-cap text-warning"></i> Education &amp; Technical Details
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Computer Proficiency*</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Computer Proficiency</option>
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Last Qualification*</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Last Qualification</option>
+                                    <option value="Matric">Matric / SSC</option>
+                                    <option value="Intermediate">Intermediate / HSC</option>
+                                    <option value="Bachelor">Bachelor's Degree</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Where did you hear about us?*</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Where did you hear about us?</option>
+                                    <option value="Social Media">Social Media (Facebook / Instagram)</option>
+                                    <option value="Friend">Friend / Family</option>
+                                    <option value="Banner">Banner / Pamphlet</option>
+                                    <option value="Google">Google Search</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label d-block">Do you have a laptop?*</label>
+                                <div class="form-check form-check-inline mt-1">
+                                    <input class="form-check-input" type="radio" name="laptop" id="laptopYes" value="Yes" required>
+                                    <label class="form-check-label" for="laptopYes">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="laptop" id="laptopNo" value="No">
+                                    <label class="form-check-label" for="laptopNo">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upload Picture -->
+                        <div class="section-title">
+                            <i class="fa-solid fa-image text-warning"></i> Upload Picture
+                        </div>
+                        <div class="upload-box mb-4">
+                            <svg class="form-check-art" viewBox="0 0 52 52" aria-hidden="true" focusable="false">
+                                <circle cx="26" cy="26" r="21" fill="none" stroke="#ffcc00" stroke-width="3"/>
+                                <path d="m15 27 7 7 15-16" fill="none" stroke="#0b1f44" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <i class="fa-solid fa-cloud-arrow-up text-primary fa-3x mb-2"></i>
+                            <div class="mb-2">
+                                <label for="formFile" class="btn btn-outline-primary btn-sm fw-bold px-4 rounded-pill cursor-pointer">
+                                    <i class="fa-solid fa-upload me-1"></i> Upload Picture
+                                </label>
+                                <input class="form-control d-none" type="file" id="formFile" accept=".jpg, .jpeg, .png" required>
+                            </div>
+                            <ul class="text-muted small list-unstyled mb-0">
+                                <li>• With white or blue background</li>
+                                <li class="text-danger">• File size must be less than 2MB</li>
+                                <li>• File type: jpg, jpeg, png</li>
+                                <li>• Upload your recent passport size picture</li>
+                                <li>• Your Face should be clearly visible with no blurry glasses</li>
+                            </ul>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="section-title">
+                            <i class="fa-solid fa-file-contract text-warning"></i> Terms and Conditions
+                        </div>
+                        <div class="terms-box mb-3">
+                            <p class="mb-2"><strong>Please read carefully and accept:</strong></p>
+                            <ul class="ps-3 mb-0">
+                                <li class="mb-2">I hereby solemnly declare that all information provided in this application is true and accurate to the best of my knowledge. Furthermore, I agree to abide by all current and future rules, regulations, and policies established by TITAN.</li>
+                                <li class="mb-2">I accept the responsibility to maintain good conduct throughout the program and commit to focusing wholly on learning. I will not engage in any political, unethical, or unrelated activities during my enrollment. Any violation may result in immediate cancellation of my admission.</li>
+                                <li class="mb-2">Upon completion of the course, I agree to successfully complete any project assigned by TITAN as part of the program requirements.</li>
+                                <li>Female students are required to wear an abaya or hijab while attending classes.</li>
+                            </ul>
+                        </div>
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" value="" id="termsCheck" required>
+                            <label class="form-check-label small fw-semibold text-secondary" for="termsCheck">
+                                By submitting this form, you agree to our Privacy Policy and Terms of Service.
+                            </label>
+                        </div>
+
+                        <!-- Important Notice -->
+                        <div class="notice-box mb-4">
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <i class="fa-solid fa-circle-info text-primary"></i>
+                                <strong class="text-dark-blue">Important Notice:</strong>
+                            </div>
+                            <span class="text-secondary">Please ensure all information provided is accurate. Incomplete or false information may result in rejection of your application.</span>
+                        </div>
+
+                        <button type="submit" class="submit-btn shadow">
+                            <i class="fa-solid fa-paper-plane me-2"></i> Submit Registration
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-section pt-5 pb-3">
+        <div class="container">
+            <div class="row gy-4 pb-4">
+                <div class="col-lg-4 col-md-6">
+                    <img src="logo.PNG" alt="TITAN Logo" class="footer-logo mb-3">
+                    <p class="footer-desc">Taj Institute of Technology &amp; Applied Networks (TITAN) is committed to providing top-quality IT education, practical training, and career empowerment for future technology leaders.</p>
+                    <div class="d-flex gap-2 social-links mt-3">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html#home"><i class="fa-solid fa-chevron-right me-2"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i>About Us</a></li>
+                        <li><a href="course.html"><i class="fa-solid fa-chevron-right me-2"></i>Courses</a></li>
+                        <li><a href="campus.html"><i class="fa-solid fa-chevron-right me-2"></i>Campuses</a></li>
+                        <li><a href="enroll.html"><i class="fa-solid fa-chevron-right me-2"></i>Admissions</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Popular Programs</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="course.html#web-dev"><i class="fa-solid fa-code me-2"></i>Modern Web Development</a></li>
+                        <li><a href="course.html#python"><i class="fa-brands fa-python me-2"></i>Python Programming</a></li>
+                        <li><a href="course.html#uiux"><i class="fa-solid fa-pen-nib me-2"></i>UI/UX Designing</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contact Details</h5>
+                    <ul class="list-unstyled footer-links text-white-50">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i>1st Floor, Aman Plaza, Tech Zone</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i>+92 (021) 3713-0092</li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-warning"></i>info@titan-institute.edu.pk</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-secondary opacity-25 my-3">
+
+            <div class="row align-items-center text-white-50 small">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 TITAN - Taj Institute of Technology &amp; Applied Networks.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
