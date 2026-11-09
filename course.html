@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All IT Courses - TITAN Institute</title>
+
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333333;
+        }
+
+        .text-dark-blue {
+            color: #0b1f44;
+        }
+
+        .top-announcement {
+            background-color: #07152e;
+            color: #ffffff;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-content span {
+            display: inline-block;
+            margin-right: 50px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 12px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-bottom: 3px solid #ffcc00;
+        }
+
+        .logo {
+            height: 55px;
+            width: auto;
+            display: block;
+        }
+
+        .navbar-nav .nav-link {
+            color: #0b1f44;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 16px !important;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+            color: #e6b800;
+        }
+
+        .dropdown-menu {
+            border: none;
+            border-top: 3px solid #0b1f44;
+            border-radius: 6px;
+            padding: 8px 0;
+        }
+
+        .dropdown-item {
+            color: #333333;
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #0b1f44;
+            color: #ffffff;
+        }
+
+        .enroll-btn {
+            background-color: #0b1f44;
+            color: #ffffff !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .enroll-btn:hover {
+            background-color: #ffcc00;
+            color: #0b1f44 !important;
+            transform: translateY(-2px);
+        }
+
+        .courses-header {
+            background: linear-gradient(135deg, #0b1f44 0%, #16366f 100%);
+            color: #ffffff;
+            padding: 65px 0;
+            text-center;
+            border-bottom: 4px solid #ffcc00;
+        }
+
+        .course-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 28px rgba(11, 31, 68, 0.12) !important;
+        }
+
+        .card-img-holder {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .card-img-top {
+            transform: scale(1.06);
+        }
+
+        .course-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .course-icon-badge {
+            position: absolute;
+            bottom: -20px;
+            left: 20px;
+            width: 48px;
+            height: 48px;
+            background: #0b1f44;
+            color: #ffcc00;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .filter-btn {
+            background-color: #ffffff;
+            color: #0b1f44;
+            border: 2px solid #0b1f44;
+            font-weight: 600;
+            border-radius: 30px;
+            padding: 8px 20px;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #0b1f44;
+            color: #ffcc00;
+            border-color: #0b1f44;
+        }
+
+        .footer-section {
+            background-color: #07152e;
+            color: #d1d5db;
+        }
+
+        .footer-logo {
+    height: 60px;
+    width: auto;
+    display: block;
+    background-color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 2px solid #ffcc00;
+        }
+
+        .footer-title {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 35px;
+            height: 2px;
+            background-color: #ffcc00;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #b0c4de;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffcc00;
+            padding-left: 5px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #ffcc00;
+            color: #0b1f44;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-announcement py-2">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span><i class="fa-solid fa-bullhorn text-warning me-2"></i> Admissions Open for All 15 Professional IT Courses 2026!</span>
+                <span><i class="fa-solid fa-graduation-cap text-warning me-2"></i> Get Hands-on Industry Project Experience &amp; Certification.</span>
+                <span><i class="fa-solid fa-laptop-code text-warning me-2"></i> Flexible Morning, Evening &amp; Weekend Batches Available!</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.PNG" alt="TITAN Logo" class="logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Courses
+                        </a>
+                        <ul class="dropdown-menu shadow" aria-labelledby="coursesDropdown">
+                            <li><a class="dropdown-item" href="#web-dev">Modern WEB Development</a></li>
+                            <li><a class="dropdown-item" href="#python">Python Programming</a></li>
+                            <li><a class="dropdown-item" href="#uiux">UI/UX Designing</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item fw-bold text-primary" href="course.html">See all Courses</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="campus.html">Campuses</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center justify-content-center">
+                    <a href="enroll.html" class="enroll-btn">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="courses-header text-center">
+        <svg class="titan-header-art titan-code-art" viewBox="0 0 300 180" aria-hidden="true" focusable="false">
+            <path class="code-bracket code-left" d="M104 34 58 90l46 56" fill="none" stroke="#ffcc00" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="code-bracket code-right" d="m196 34 46 56-46 56" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="code-slash" d="m164 27-28 126" stroke="#ffcc00" stroke-width="8" stroke-linecap="round"/>
+            <circle class="code-dot" cx="41" cy="90" r="6" fill="#ffffff"/>
+            <circle class="code-dot" cx="259" cy="90" r="6" fill="#ffcc00"/>
+        </svg>
+        <div class="container">
+            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3">Explore Programs</span>
+            <h1 class="display-5 fw-bold">All Professional IT Courses</h1>
+            <p class="lead max-w-600 mx-auto text-light">Master high-demand tech skills with practical, job-oriented diploma and certification programs.</p>
+        </div>
+    </section>
+
+    <section class="py-5 tech-section">
+        <svg class="titan-section-art titan-gear-art" viewBox="0 0 190 170" aria-hidden="true" focusable="false">
+            <g class="gear-one" fill="none" stroke="#0b1f44" stroke-width="8" stroke-linecap="round">
+                <circle cx="73" cy="98" r="29"/><path d="M73 52v14m0 64v14m-46-46h14m64 0h14M40 65l10 10m46 46 10 10M106 65 96 75m-46 46-10 10"/>
+            </g>
+            <g class="gear-two" fill="none" stroke="#ffcc00" stroke-width="6" stroke-linecap="round">
+                <circle cx="130" cy="49" r="19"/><path d="M130 20v9m0 40v9m-29-29h9m40 0h9m-49-20 7 7m26 26 7 7m0-40-7 7m-26 26-7 7"/>
+            </g>
+        </svg>
+        <div class="container py-3">
+            
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6" id="web-dev">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Modern Web Development">
+                            <span class="badge bg-primary course-tag">Popular</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-code"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">1. Modern WEB Development</h5>
+                            <p class="text-secondary small flex-grow-1">HTML5, CSS3, JavaScript ES6+, Bootstrap 5, Express.js, Node.js, and MongoDB database management.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 6 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" id="python">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Python Programming">
+                            <span class="badge bg-warning text-dark course-tag">Trending</span>
+                            <div class="course-icon-badge"><i class="fa-brands fa-python"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">2. Python Programming</h5>
+                            <p class="text-secondary small flex-grow-1">Python basics to advanced OOP, Flask web applications, automation scripts, and API integrations.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 4 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" id="uiux">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="UI/UX Designing">
+                            <span class="badge bg-info text-white course-tag">High Demand</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-pen-nib"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">3. UI/UX Designing</h5>
+                            <p class="text-secondary small flex-grow-1">Figma wireframing, interactive prototyping, user research, design systems, and responsive web/app design.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 3 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="AI & ML">
+                            <span class="badge bg-primary course-tag">Future Tech</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-brain"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">4. AI &amp; Machine Learning</h5>
+                            <p class="text-secondary small flex-grow-1">Machine Learning algorithms, TensorFlow, computer vision (OpenCV), and LLM API integrations.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 6 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Mobile App Development">
+                            <span class="badge bg-success course-tag">Mobile</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">5. Mobile App Development</h5>
+                            <p class="text-secondary small flex-grow-1">Cross-platform Android &amp; iOS development using Flutter, Dart, Firebase backend, and Play Store publishing.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 5 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Cyber Security">
+                            <span class="badge bg-danger course-tag">High Pay</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-shield-halved"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">6. Cyber Security &amp; Hacking</h5>
+                            <p class="text-secondary small flex-grow-1">Network security, Kali Linux penetration testing, vulnerability assessment, and defensive countermeasures.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 6 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Graphic Design">
+                            <span class="badge bg-secondary course-tag">Creative</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-photo-film"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">7. Graphic Design &amp; Video</h5>
+                            <p class="text-secondary small flex-grow-1">Adobe Photoshop, Illustrator, Premiere Pro video editing, logo design, branding, and thumbnail creation.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 3 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="DevOps">
+                            <span class="badge bg-dark text-white course-tag">Enterprise</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-cloud"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">8. Cloud Computing &amp; DevOps</h5>
+                            <p class="text-secondary small flex-grow-1">AWS Cloud essentials, Docker containerization, Kubernetes orchestration, CI/CD pipelines, and server hosting.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 4 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Data Science">
+                            <span class="badge bg-primary course-tag">Analytics</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-chart-line"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">9. Data Science &amp; Analytics</h5>
+                            <p class="text-secondary small flex-grow-1">Data analysis using Python Pandas, NumPy, Power BI dashboards, SQL databases, and statistical modeling.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 5 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Digital Marketing">
+                            <span class="badge bg-warning text-dark course-tag">Business</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-bullseye"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">10. Digital Marketing &amp; SEO</h5>
+                            <p class="text-secondary small flex-grow-1">Social Media Ads (Facebook, Google), Search Engine Optimization (SEO), content strategy, and sales funnels.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 3 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Database Management">
+                            <span class="badge bg-info text-white course-tag">Backend</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-database"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">11. Database &amp; SQL Mastery</h5>
+                            <p class="text-secondary small flex-grow-1">Relational database design using MySQL, PostgreSQL, SQLite, schema normalization, and complex querying.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 3 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Game Development">
+                            <span class="badge bg-danger course-tag">Interactive</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-gamepad"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">12. 2D/3D Game Development</h5>
+                            <p class="text-secondary small flex-grow-1">Building 2D &amp; 3D games in Unity Game Engine, C# scripting, physics, character controls, and game logic.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 6 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="SQA">
+                            <span class="badge bg-success course-tag">QA</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-vial-circle-check"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">13. Software Testing &amp; SQA</h5>
+                            <p class="text-secondary small flex-grow-1">Manual testing strategies, automated testing with Selenium, bug tracking in Jira, and QA documentation.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 3 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Networking">
+                            <span class="badge bg-primary course-tag">Hardware</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-network-wired"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">14. Networking (CCNA Prep)</h5>
+                            <p class="text-secondary small flex-grow-1">Routing &amp; switching protocols, IP addressing (IPv4/IPv6), router configurations, and Cisco Packet Tracer labs.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 4 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card course-card h-100 shadow-sm">
+                        <div class="card-img-holder">
+                            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="DIT Office Automation">
+                            <span class="badge bg-warning text-dark course-tag">Foundation</span>
+                            <div class="course-icon-badge"><i class="fa-solid fa-desktop"></i></div>
+                        </div>
+                        <div class="card-body p-4 pt-5 d-flex flex-column">
+                            <h5 class="fw-bold text-dark-blue">15. Diploma in IT (DIT)</h5>
+                            <p class="text-secondary small flex-grow-1">Computer fundamentals, MS Office suite (Word, Excel, PPT), Internet essentials, and basic computer troubleshooting.</p>
+                            <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="fa-regular fa-clock me-1 text-primary"></i> 6 Months</span>
+                                <a href="enroll.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section pt-5 pb-3">
+        <div class="container">
+            <div class="row gy-4 pb-4">
+                <div class="col-lg-4 col-md-6">
+                    <img src="logo.PNG" alt="TITAN Logo" class="footer-logo mb-3">
+                    <p class="footer-desc">Taj Institute of Technology &amp; Applied Networks (TITAN) is committed to providing top-quality IT education, practical training, and career empowerment for future technology leaders.</p>
+                    <div class="d-flex gap-2 social-links mt-3">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html#home"><i class="fa-solid fa-chevron-right me-2"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i>About Us</a></li>
+                        <li><a href="course.html"><i class="fa-solid fa-chevron-right me-2"></i>All Courses</a></li>
+                        <li><a href="campus.html"><i class="fa-solid fa-chevron-right me-2"></i>Campuses</a></li>
+                        <li><a href="enroll.html"><i class="fa-solid fa-chevron-right me-2"></i>Admissions</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Top IT Track</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#web-dev"><i class="fa-solid fa-code me-2"></i>Modern Web Development</a></li>
+                        <li><a href="#python"><i class="fa-brands fa-python me-2"></i>Python Programming</a></li>
+                        <li><a href="#uiux"><i class="fa-solid fa-pen-nib me-2"></i>UI/UX Designing</a></li>
+                        <li><a href="#"><i class="fa-solid fa-brain me-2"></i>AI &amp; Machine Learning</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contact Details</h5>
+                    <ul class="list-unstyled footer-links text-white-50">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i>1st Floor, Aman Plaza, Tech Zone</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i>+92 (021) 3713-0092</li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-warning"></i>info@titan-institute.edu.pk</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-secondary opacity-25 my-3">
+
+            <div class="row align-items-center copyright-text text-white-50">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 TITAN - Taj Institute of Technology &amp; Applied Networks.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
