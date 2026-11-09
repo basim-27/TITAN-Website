@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TITAN Institute</title>
+
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        .text-dark-blue {
+            color: #0b1f44;
+        }
+
+        .light-blue-bg {
+            background-color: #f4f7fc;
+        }
+
+        .top-announcement {
+            background-color: #07152e;
+            color: #ffffff;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-content span {
+            display: inline-block;
+            margin-right: 50px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 12px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-bottom: 3px solid #ffcc00;
+        }
+
+        .logo {
+            height: 55px;
+            width: auto;
+            display: block;
+        }
+
+        .navbar-nav .nav-link {
+            color: #0b1f44;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 16px !important;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+            color: #e6b800;
+        }
+
+        .dropdown-menu {
+            border: none;
+            border-top: 3px solid #0b1f44;
+            border-radius: 6px;
+            padding: 8px 0;
+        }
+
+        .dropdown-item {
+            color: #333333;
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #0b1f44;
+            color: #ffffff;
+        }
+
+        .enroll-btn {
+            background-color: #0b1f44;
+            color: #ffffff !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .enroll-btn:hover {
+            background-color: #ffcc00;
+            color: #0b1f44 !important;
+            transform: translateY(-2px);
+        }
+
+        .about-header {
+            background: linear-gradient(135deg, #0b1f44 0%, #16366f 100%);
+            color: #ffffff;
+            padding: 70px 0;
+            border-bottom: 4px solid #ffcc00;
+        }
+
+        .feature-box {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px 25px;
+            box-shadow: 0 6px 18px rgba(11, 31, 68, 0.06);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-6px);
+            border-color: #ffcc00;
+        }
+
+        .icon-square {
+            width: 60px;
+            height: 60px;
+            background-color: #0b1f44;
+            color: #ffcc00;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .stats-counter {
+            background-color: #07152e;
+            color: #ffffff;
+            border-top: 3px solid #ffcc00;
+            border-bottom: 3px solid #ffcc00;
+        }
+
+        .team-card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .team-img-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-img {
+            height: 260px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .team-role {
+            color: #e6b800;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .footer-section {
+            background-color: #07152e;
+            color: #d1d5db;
+        }
+
+       .footer-logo {
+    height: 60px;
+    width: auto;
+    display: block;
+    background-color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 2px solid #ffcc00;
+}
+
+        .footer-title {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 35px;
+            height: 2px;
+            background-color: #ffcc00;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #b0c4de;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffcc00;
+            padding-left: 5px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #ffcc00;
+            color: #0b1f44;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-announcement py-2">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span><i class="fa-solid fa-bullhorn text-warning me-2"></i> TITAN Institute - Empowering 15,000+ Students Nationwide!</span>
+                <span><i class="fa-solid fa-award text-warning me-2"></i> Excellence in IT Education, Software Development &amp; Practical Training.</span>
+                <span><i class="fa-solid fa-building-columns text-warning me-2"></i> Visit Our State-of-the-Art Campuses Today!</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.PNG" alt="TITAN Logo" class="logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="course.html" id="coursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Courses
+                        </a>
+                        <ul class="dropdown-menu shadow" aria-labelledby="coursesDropdown">
+                            <li><a class="dropdown-item" href="course.html#web-dev">Modern WEB Development</a></li>
+                            <li><a class="dropdown-item" href="course.html#python">Python Programming</a></li>
+                            <li><a class="dropdown-item" href="course.html#uiux">UI/UX Development</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item fw-bold text-primary" href="course.html">See all Courses</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="campus.html">Campuses</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center justify-content-center">
+                    <a href="enroll.html" class="enroll-btn">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="about-header text-center">
+        <svg class="titan-header-art titan-network-art" viewBox="0 0 320 180" aria-hidden="true" focusable="false">
+            <path class="data-line" d="M22 124C80 34 144 164 204 73S271 43 310 22" fill="none" stroke="#ffcc00" stroke-width="2" stroke-dasharray="7 9"/>
+            <g class="network-nodes" fill="#ffffff" stroke="#ffcc00" stroke-width="3">
+                <circle cx="22" cy="124" r="8"/><circle cx="92" cy="55" r="7"/><circle cx="152" cy="139" r="9"/><circle cx="204" cy="73" r="7"/><circle cx="270" cy="47" r="8"/>
+            </g>
+            <path d="M55 31h28M69 17v28" stroke="#ffcc00" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="container">
+            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3">Who We Are</span>
+            <h1 class="display-4 fw-bold">About TITAN Institute</h1>
+            <p class="lead max-w-600 mx-auto text-light">Taj Institute of Technology &amp; Applied Networks - Building the Next Generation of Software Engineers &amp; Tech Professionals.</p>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="TITAN Learning Environment" class="img-fluid rounded-4 shadow-lg">
+                </div>
+                <div class="col-lg-6">
+                    <span class="text-primary fw-bold text-uppercase">Our Story &amp; Vision</span>
+                    <h2 class="fw-bold text-dark-blue my-3">Bridging Academic Knowledge with Industry Needs</h2>
+                    <p class="text-secondary">Established with a vision to transform tech education, <strong>Taj Institute of Technology &amp; Applied Networks (TITAN)</strong> provides project-centric learning in Web Engineering, Mobile App Development, AI, Python Scripting, and UI/UX Design.</p>
+                    <p class="text-secondary">We believe in learning by doing. Our curriculum is engineered by senior developers to match current software house demands, preparing our students for high-growth digital careers globally.</p>
+
+                    <div class="d-flex gap-4 mt-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-warning fs-2"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0">100% Practical Labs</h6>
+                                <small class="text-muted">Real-world projects</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-warning fs-2"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0">Job Support</h6>
+                                <small class="text-muted">Internship placement</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 light-blue-bg tech-section">
+        <svg class="titan-section-art titan-cap-art" viewBox="0 0 190 150" aria-hidden="true" focusable="false">
+            <path d="M25 61 95 28l70 33-70 33L25 61Z" fill="none" stroke="#0b1f44" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M52 75v30c25 19 61 19 86 0V75" fill="none" stroke="#ffcc00" stroke-width="6" stroke-linejoin="round"/>
+            <path class="cap-tassel" d="M165 61v39c0 9 9 11 13 4" fill="none" stroke="#0b1f44" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="179" cy="105" r="7" fill="#ffcc00"/>
+        </svg>
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold">Core Pillars</span>
+                <h2 class="fw-bold text-dark-blue mt-2">Why Choose TITAN Institute?</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-box h-100">
+                        <div class="icon-square">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark-blue">Hands-on Code Training</h5>
+                        <p class="text-secondary small">Students write real code from Day 1 under the direct supervision of experienced senior full-stack software engineers.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-box h-100">
+                        <div class="icon-square">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark-blue">Recognized Certifications</h5>
+                        <p class="text-secondary small">Earn diplomas and course completion certificates recognized across tech companies and software agencies worldwide.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-box h-100">
+                        <div class="icon-square">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark-blue">Career &amp; Freelancing</h5>
+                        <p class="text-secondary small">Dedicated sessions on Fiverr, Upwork, LinkedIn personal branding, portfolio creation, and technical interview prep.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-counter py-5">
+        <div class="container">
+            <div class="row text-center gy-4">
+                <div class="col-md-3 col-6">
+                    <i class="fa-solid fa-user-graduate fa-2x mb-2 text-warning"></i>
+                    <h3 class="fw-bold">15,000+</h3>
+                    <p class="mb-0 text-light">Enrolled Students</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <i class="fa-solid fa-laptop-file fa-2x mb-2 text-warning"></i>
+                    <h3 class="fw-bold">15+</h3>
+                    <p class="mb-0 text-light">IT Specializations</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <i class="fa-solid fa-handshake fa-2x mb-2 text-warning"></i>
+                    <h3 class="fw-bold">120+</h3>
+                    <p class="mb-0 text-light">Hiring Partners</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <i class="fa-solid fa-star fa-2x mb-2 text-warning"></i>
+                    <h3 class="fw-bold">4.9 / 5</h3>
+                    <p class="mb-0 text-light">Student Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase">Leadership &amp; Mentors</span>
+                <h2 class="fw-bold text-dark-blue">Learn From Industry Veterans</h2>
+                <p class="text-secondary">Our faculty consists of working engineers, software developers, and lead architects.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Lead Instructor" class="team-img">
+                        </div>
+                        <div class="p-3 text-center">
+                            <h6 class="fw-bold text-dark-blue mb-1">Ayesha Khan</h6>
+                            <span class="team-role">Head of Web Engineering</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="Python Specialist" class="team-img">
+                        </div>
+                        <div class="p-3 text-center">
+                            <h6 class="fw-bold text-dark-blue mb-1">Aliyan Shaikh</h6>
+                            <span class="team-role">AI &amp; Python Lead</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="UI/UX Designer" class="team-img">
+                        </div>
+                        <div class="p-3 text-center">
+                            <h6 class="fw-bold text-dark-blue mb-1">Sara Ahmed</h6>
+                            <span class="team-role">Senior UI/UX Architect</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80" alt="Cyber Security Lead" class="team-img">
+                        </div>
+                        <div class="p-3 text-center">
+                            <h6 class="fw-bold text-dark-blue mb-1">Usman Farooq</h6>
+                            <span class="team-role">Cyber Security Expert</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section pt-5 pb-3">
+        <div class="container">
+            <div class="row gy-4 pb-4">
+                <div class="col-lg-4 col-md-6">
+                    <img src="logo.PNG" alt="TITAN Logo" class="footer-logo mb-3">
+                    <p class="footer-desc">Taj Institute of Technology &amp; Applied Networks (TITAN) is committed to providing top-quality IT education, practical training, and career empowerment for future technology leaders.</p>
+                    <div class="d-flex gap-2 social-links mt-3">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html#home"><i class="fa-solid fa-chevron-right me-2"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i>About Us</a></li>
+                        <li><a href="course.html"><i class="fa-solid fa-chevron-right me-2"></i>Courses</a></li>
+                        <li><a href="campus.html"><i class="fa-solid fa-chevron-right me-2"></i>Campuses</a></li>
+                        <li><a href="enroll.html"><i class="fa-solid fa-chevron-right me-2"></i>Admissions</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Core Tracks</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="course.html#web-dev"><i class="fa-solid fa-code me-2"></i>Web Development</a></li>
+                        <li><a href="course.html#python"><i class="fa-brands fa-python me-2"></i>Python &amp; AI</a></li>
+                        <li><a href="course.html#uiux"><i class="fa-solid fa-pen-nib me-2"></i>UI/UX Designing</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contact Us</h5>
+                    <ul class="list-unstyled footer-links text-white-50">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i>1st Floor, Aman Plaza, Tech Zone</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i>+92 (021) 3713-0092</li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-warning"></i>info@titan-institute.edu.pk</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-secondary opacity-25 my-3">
+
+            <div class="row align-items-center text-white-50 small">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 TITAN - Taj Institute of Technology &amp; Applied Networks.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
